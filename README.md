@@ -62,19 +62,19 @@ Used two-proportion Z-tests to compare conversion rates between groups.
 
 ### Funnel Conversion Comparison
 
-![Funnel Comparison](images/funnel_comparison.png)
+![Funnel Comparison](Images/funnel_comparison.png)
 
 ### Conversion Rates by Group
 
-![Conversion Rates](images/conversion_rates.png)
+![Conversion Rates](Images/conversion_rates.png)
 
 ### Daily Event Activity
 
-![Daily Activity](images/daily_activity.png)
+![Daily Activity](Images/daily_activity.png)
 
 ### Events per User Distribution
 
-![User Activity](images/user_event_distribution.png)
+![User Activity](Images/user_event_distribution.png)
 
 ---
 
