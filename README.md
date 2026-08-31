@@ -97,7 +97,7 @@ The new version does not improve final conversion enough to replace the current 
 AB_Test_Analysis/
 │── AB_Test_Project.ipynb
 │── README.md
-│── requirements.txt
+│── requirement.txt
 │── data/
 │── images/
 ```
