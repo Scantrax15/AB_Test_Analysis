@@ -84,6 +84,22 @@ Used two-proportion Z-tests to compare conversion rates between groups.
 - No statistically significant increase in final purchases
 - Overall business impact is not meaningful
 
+## SQL Validation
+
+In addition to the pandas-based analysis, the core funnel and conversion metrics were re-validated using SQL against a relational database (SQLite), to demonstrate the analysis holds when working directly against raw, unmerged source tables rather than a pre-joined DataFrame.
+
+See `SQL_Validation_AB_Test.ipynb` for the full walkthrough. Highlights:
+
+- Loaded all four raw CSV files into a relational schema (`events`, `users`, `participants`, `marketing_events`), connected by `user_id`.
+- Ran a data quality check that surfaced 887 users enrolled in both experiments simultaneously — a finding not covered in the original notebook.
+- Replicated the funnel (unique users per stage, by group) using `JOIN` + `GROUP BY`.
+- Replicated the group conversion rates using a multi-CTE query (`WITH ... AS`), confirming the same results as the pandas analysis (Group A: 31.74%, Group B: 27.59%).
+- Cross-checked the test period against the marketing campaign calendar and found it overlapped with the Christmas & New Year Promo — a second potential confound alongside the dual-test enrollment issue.
+- Broke down conversion rate by device, confirming the group A/B gap holds consistently across Mac, iPhone, Android, and PC.
+- Measured average time-to-purchase by group using SQL date functions, finding the two groups convert at a similar speed once a purchase happens — the effect is on *whether* users convert, not how fast.
+
+**Tools used:** SQLite, SQL (JOIN, GROUP BY, HAVING, CTEs, date functions)
+
 ### Recommendation
 
 **Do not implement Group B yet.**  
@@ -100,6 +116,7 @@ AB_Test_Analysis/
 │── requirement.txt
 │── data/
 │── images/
+│── notebooks/
 ```
 
 ## Skills Demonstrated
